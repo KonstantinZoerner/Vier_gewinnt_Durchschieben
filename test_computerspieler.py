@@ -8,7 +8,7 @@ class TestZufallsspieler(unittest.TestCase):
         mein_feld = feld.Spielfeld()
         spieler = computerspieler.Zufallsspieler()
 
-        zug = spieler.ermittleZug(mein_feld)
+        zug = spieler.ermittle_zug(mein_feld)
 
         self.assertTrue(0 <= zug[0] <= 3)
 
@@ -32,5 +32,5 @@ class TestSchlauerspieler(unittest.TestCase):
         mein_feld = feld.Spielfeld()
         spieler = computerspieler.Schlauerspieler()
 
-        zug = spieler.ermittleZug(mein_feld)
+        zug = spieler.ermittle_zug(mein_feld)
         self.assertTrue(0 <= zug[0] <= 3)

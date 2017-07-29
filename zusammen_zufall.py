@@ -102,7 +102,7 @@ while not gewonnen:
                     sieg_ueberpruefen()
 
         if daten.am_zug == 2 and computer == True and not auswahl_erfolgt:
-            gewaehlte_spalte, gewaehlter_stein = computerspieler.ermittleZug(daten)
+            gewaehlte_spalte, gewaehlter_stein = computerspieler.ermittle_zug(daten)
             bild.stein_ausgewaehlt = gewaehlter_stein
             bild.animation_Reihe(gewaehlte_spalte, daten)
             daten.neuer_stein(gewaehlte_spalte, bild.stein_ausgewaehlt)

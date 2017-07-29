@@ -10,23 +10,23 @@ class Computerspieler(object):
     def ermittle_gueltige_zuge(self, spielfeld):
         """ liefert eine Liste mit den aktuell moeglichen Zuegen zurueck. """
 
-        amZug = spielfeld.am_zug
+        am_zug = spielfeld.am_zug
 
-        hatSpezialsteinNoch = False
-        if amZug == 1 and spielfeld.sp_eins == 1:
-            hatSpezialsteinNoch = True
-        elif amZug == 2 and spielfeld.sp_zwei == 1:
-            hatSpezialsteinNoch = True
+        hat_spezialstein_noch = False
+        if am_zug == 1 and spielfeld.sp_eins == 1:
+            hat_spezialstein_noch = True
+        elif am_zug == 2 and spielfeld.sp_zwei == 1:
+            hat_spezialstein_noch = True
 
         zuege = []
         for spalte in range(4):
             zuege.append((spalte, 1))
-            if hatSpezialsteinNoch:
+            if hat_spezialstein_noch:
                 zuege.append((spalte, 2))
 
         return zuege
 
-    def ermittleZug (self, spielfeld):
+    def ermittle_zug (self, spielfeld):
         pass
 
 
@@ -36,7 +36,7 @@ class Zufallsspieler ( Computerspieler ):
         Computerspieler.__init__(self)
         pass
 
-    def ermittleZug(self, spielfeld):
+    def ermittle_zug(self, spielfeld):
         zufalls_reihe = random.randint(0, 3)
         return zufalls_reihe, 1
 
@@ -47,28 +47,27 @@ class Schlauerspieler ( Computerspieler ):
         self.bewerter = bewerten.Bewertung()
         pass
 
-    def ermittleZug(self, spielfeld):
+    def ermittle_zug(self, spielfeld):
 
         # 1. Moegliche Zuege ermitteln
 
         amZug = spielfeld.am_zug
-        kandidatenZuege = self.ermittle_gueltige_zuge(spielfeld)
-        random.shuffle(kandidatenZuege)
+        kandidaten_zuege = self.ermittle_gueltige_zuge(spielfeld)
+        random.shuffle(kandidaten_zuege)
 
         # Zuege ausprobieren und bewerten
 
-        besteBewertung = -1000
-        besterZug = kandidatenZuege[0]
+        beste_bewertung = -1000
+        bester_zug = kandidaten_zuege[0]
 
-        for zug in kandidatenZuege:
+        for zug in kandidaten_zuege:
             bewertung = self.probiereZugAus(spielfeld, zug)
-            if bewertung > besteBewertung:
-                besteBewertung = bewertung
-                besterZug = zug
-                #print("Neuer Bester Zug", besteBewertung, besterZug)
+            if bewertung > beste_bewertung:
+                beste_bewertung = bewertung
+                bester_zug = zug
 
         # Zug zurueckliefern
-        return besterZug
+        return bester_zug
 
     def probiereZugAus (self, spielfeld, zug):
 
