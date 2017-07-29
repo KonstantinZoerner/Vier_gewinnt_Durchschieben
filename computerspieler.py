@@ -8,6 +8,8 @@ class Computerspieler(object):
         pass
 
     def ermittle_gueltige_zuge(self, spielfeld):
+        """ liefert eine Liste mit den aktuell moeglichen Zuegen zurueck. """
+
         amZug = spielfeld.am_zug
 
         hatSpezialsteinNoch = False
