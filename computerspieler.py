@@ -2,12 +2,12 @@ import random
 import bewerten
 
 
-class Computerspieler( object ):
+class Computerspieler(object):
 
     def __init__(self):
         pass
 
-    def ermittleGueltigeZuge(self, spielfeld):
+    def ermittle_gueltige_zuge(self, spielfeld):
         amZug = spielfeld.am_zug
 
         hatSpezialsteinNoch = False
@@ -19,7 +19,7 @@ class Computerspieler( object ):
         zuege = []
         for spalte in range(4):
             zuege.append((spalte, 1))
-            if (hatSpezialsteinNoch):
+            if hatSpezialsteinNoch:
                 zuege.append((spalte, 2))
 
         return zuege
@@ -50,7 +50,8 @@ class Schlauerspieler ( Computerspieler ):
         # 1. Moegliche Zuege ermitteln
 
         amZug = spielfeld.am_zug
-        kandidatenZuege = self.ermittleGueltigeZuge(spielfeld)
+        kandidatenZuege = self.ermittle_gueltige_zuge(spielfeld)
+        random.shuffle(kandidatenZuege)
 
         # Zuege ausprobieren und bewerten
 
@@ -62,7 +63,7 @@ class Schlauerspieler ( Computerspieler ):
             if bewertung > besteBewertung:
                 besteBewertung = bewertung
                 besterZug = zug
-                print("Neuer Bester Zug", besteBewertung, besterZug)
+                #print("Neuer Bester Zug", besteBewertung, besterZug)
 
         # Zug zurueckliefern
         return besterZug
@@ -73,7 +74,7 @@ class Schlauerspieler ( Computerspieler ):
         spielfeld.neuer_stein(zug[0], zug[1])
 
         # bewerte neue Spielsituation
-        bewertung = self.bewerter.bewerten(spielfeld, ich)
+        bewertung = self.bewerter.bewerten_gewinnen(spielfeld, ich)
 
         # Zug zuruecknehmen
         spielfeld.neuer_stein_undo()
