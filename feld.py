@@ -159,7 +159,7 @@ class Spielfeld:
                     print("2")
 
         if self.feld_liste[0][3].lower() == self.feld_liste[1][2].lower() == self.feld_liste[2][1].lower() == self.feld_liste[3][0].lower() and self.feld_liste[0][3].lower() != "-":
-            if self.feld_liste[0][3].isupper() or self.feld_liste[1][2].isupper() or self.feld_liste[2][1].isupper() or self.feld_liste[3][0].isupper() :
+            if self.feld_liste[0][3].isupper() or self.feld_liste[1][2].isupper() or self.feld_liste[2][1].isupper() or self.feld_liste[3][0].isupper():
                 if self.feld_liste[0][3].lower() == "x":
                     punkte[1] += 2
                 elif self.feld_liste[0][3].lower() == "o":
@@ -173,7 +173,6 @@ class Spielfeld:
             for i in range(4):
                 positionen[i][3 - i] = "+"
                 print("3")
-
 
         if self.feld_liste[0][0].lower() == self.feld_liste[1][1].lower() == self.feld_liste[2][2].lower() == self.feld_liste[3][3].lower() and self.feld_liste[0][0].lower() != "-":
             if self.feld_liste[0][0].isupper() or self.feld_liste[1][1].isupper() or self.feld_liste[2][2].isupper() or self.feld_liste[3][3].isupper():

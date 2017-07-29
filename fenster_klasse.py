@@ -139,7 +139,7 @@ class Fenster:
                 self.screen.blit(self.stein_rot2, (self.aussenrand + spalte * 100 + self.zwischen_rand_gitter, self.aussenrand + i * 5 - 100 + 5 + self.zwischen_rand_gitter))
             kontrollstrukturen.aus_schalten_pruefen()
             extra_liste = daten.feld_liste[:]
-            extra_liste[spalte] = ["-", "-" ,"-" ,"-"]
+            extra_liste[spalte] = ["-", "-", "-", "-"]
             self.zeige_position(extra_liste)
             self.wiederkehrende_blider(daten)
             pygame.display.flip()
@@ -191,7 +191,6 @@ class Fenster:
                     if daten.feld_liste[k][j] == "O":
                         self.screen.blit(self.stein_rot2, (self.aussenrand + k * 100 + self.zwischen_rand_gitter, self.aussenrand + i * 15 + j * 100 + 5 + self.zwischen_rand_gitter))
 
-
             kontrollstrukturen.aus_schalten_pruefen()
             self.wiederkehrende_blider(daten)
             pygame.display.flip()
@@ -234,7 +233,7 @@ class Fenster:
 
 
         for i in range(self.spielfeldrand):
-            pygame.draw.line(self.screen, (r, g, b), (self.aussenrand + self.zwischen_rand_rand + i, self.aussenrand + self.zwischen_rand_rand + i), (self.aussenrand + self.zwischen_rand_gitter + 400 + self.spielfeldrand - i - 1, self.aussenrand + self.zwischen_rand_rand + i ))
+            pygame.draw.line(self.screen, (r, g, b), (self.aussenrand + self.zwischen_rand_rand + i, self.aussenrand + self.zwischen_rand_rand + i), (self.aussenrand + self.zwischen_rand_gitter + 400 + self.spielfeldrand - i - 1, self.aussenrand + self.zwischen_rand_rand + i))
             pygame.draw.line(self.screen, (r, g, b), (self.aussenrand + self.zwischen_rand_rand + i, self.aussenrand + self.zwischen_rand_rand + i), (self.aussenrand + self.zwischen_rand_rand + i, self.hoehe - self.aussenrand -self.zwischen_rand_rand - 1 - i))
             pygame.draw.line(self.screen, (r, g, b), (self.aussenrand + self.zwischen_rand_gitter + 400 + self.spielfeldrand - i - 1, self.aussenrand + self.zwischen_rand_rand + i), (self.aussenrand + self.zwischen_rand_gitter + 400 + self.spielfeldrand - i - 1, self.hoehe - self.aussenrand -self.zwischen_rand_rand - 1 - i))
             pygame.draw.line(self.screen, (r, g, b), (self.aussenrand + self.zwischen_rand_rand + i, self.hoehe - self.aussenrand -self.zwischen_rand_rand - 1 - i), (self.aussenrand + self.zwischen_rand_gitter + 400 + self.spielfeldrand - i - 1, self.hoehe - self.aussenrand -self.zwischen_rand_rand - 1 - i))
@@ -285,7 +284,7 @@ class Fenster:
             self.screen.blit(self.grausteinklein, (2 * self.aussenrand + 420 + 10 + 2 * self.zwischen_rand_gitter + 80, self.aussenrand + 80))
 
         if daten.sp_zwei == 1:
-            self.screen.blit(self.stein4klein,(2 * self.aussenrand + 420 + 10 + 2 * self.zwischen_rand_gitter + 80, self.hoehe / 2 + 80))
+            self.screen.blit(self.stein4klein, (2 * self.aussenrand + 420 + 10 + 2 * self.zwischen_rand_gitter + 80, self.hoehe / 2 + 80))
 
         else:
             self.screen.blit(self.grausteinklein,(2 * self.aussenrand + 420 + 10 + 2 * self.zwischen_rand_gitter + 80, self.hoehe / 2 + 80))
