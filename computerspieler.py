@@ -40,6 +40,7 @@ class Zufallsspieler (Computerspieler):
         zufalls_reihe = random.randint(0, 3)
         return zufalls_reihe, 1
 
+
 class Schlauerspieler (Computerspieler):
 
     def __init__(self):
@@ -79,4 +80,3 @@ class Schlauerspieler (Computerspieler):
         spielfeld.neuer_stein_undo()
 
         return bewertung
-
