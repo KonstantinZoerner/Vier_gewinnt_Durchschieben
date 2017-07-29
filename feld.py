@@ -23,7 +23,7 @@ class Spielfeld:
             for spalte in range(self.breite):
                 linie += self.feld_liste[spalte][reihe] + " "
             print(linie)
-        print()
+
 
     def aendere_feld(self, position, symbol):
         x, y = position
