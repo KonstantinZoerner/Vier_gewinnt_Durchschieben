@@ -51,7 +51,6 @@ class Schlauerspieler ( Computerspieler ):
 
         # 1. Moegliche Zuege ermitteln
 
-        amZug = spielfeld.am_zug
         kandidaten_zuege = self.ermittle_gueltige_zuge(spielfeld)
         random.shuffle(kandidaten_zuege)
 
@@ -61,7 +60,7 @@ class Schlauerspieler ( Computerspieler ):
         bester_zug = kandidaten_zuege[0]
 
         for zug in kandidaten_zuege:
-            bewertung = self.probiereZugAus(spielfeld, zug)
+            bewertung = self.probiere_zug_aus(spielfeld, zug)
             if bewertung > beste_bewertung:
                 beste_bewertung = bewertung
                 bester_zug = zug
@@ -69,8 +68,7 @@ class Schlauerspieler ( Computerspieler ):
         # Zug zurueckliefern
         return bester_zug
 
-    def probiereZugAus (self, spielfeld, zug):
-
+    def probiere_zug_aus (self, spielfeld, zug):
         ich = spielfeld.am_zug
         spielfeld.neuer_stein(zug[0], zug[1])
 

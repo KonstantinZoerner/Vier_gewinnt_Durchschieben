@@ -1,36 +1,35 @@
 
 
-class Bewertung( object ):
+class Bewertung(object):
 
-    def bewerten(self, spielfeld, ausSicht):
+    def bewerten(self, spielfeld, aus_sicht):
 
-        wertSteine1 = 0
-        wertSteine2 = 0
+        wert_steine1 = 0
+        wert_steine2 = 0
 
         for spalte in spielfeld.feld_liste:
             for stein in spalte:
                 if stein == 'o':
-                    wertSteine1 += 1
+                    wert_steine1 += 1
                 elif stein == 'x':
-                    wertSteine2 += 1
+                    wert_steine2 += 1
                 elif stein == 'O':
-                    wertSteine1 += 5
+                    wert_steine1 += 5
                 elif stein == 'X':
-                    wertSteine2 += 5
+                    wert_steine2 += 5
 
-        bewertung = wertSteine1 - wertSteine2
-        if ausSicht == 2:
+        bewertung = wert_steine1 - wert_steine2
+        if aus_sicht == 2:
             bewertung *= -1
 
         return bewertung
 
-
-    def bewerten_gewinnen(self, spielfeld, ausSicht):
+    def bewerten_gewinnen(self, spielfeld, aus_sicht):
 
         (punkte1, punkte2), umwichtig = spielfeld.neue_siegesbedingungen()
 
         bewertung = punkte1 - punkte2
-        if ausSicht == 2:
+        if aus_sicht == 2:
             bewertung *= -1
 
         return bewertung

@@ -68,7 +68,7 @@ class Fenster:
                 self.screen.blit(self.stein_rot2, (self.aussenrand + spalte * 100 + self.zwischen_rand_gitter, self.aussenrand + i * 5 - 100 + 5 + self.zwischen_rand_gitter))
             kontrollstrukturen.aus_schalten_pruefen()
             extra_liste = daten.feld_liste[:]
-            extra_liste[spalte] = ["-","-","-","-"]
+            extra_liste[spalte] = ["-", "-", "-", "-"]
             self.zeige_position(extra_liste)
             self.wiederkehrende_blider(daten)
             pygame.display.flip()
@@ -101,8 +101,8 @@ class Fenster:
             pygame.display.flip()
             self.clock.tick(30)
 
-    def animation_Reihe(self, spalte, daten, neu = None):
-        if neu == None:
+    def animation_reihe(self, spalte, daten, neu=None):
+        if neu is None:
             if daten.am_zug == 1 and self.stein_ausgewaehlt == 1:
                 neu = "o"
             if daten.am_zug == 2 and self.stein_ausgewaehlt == 1:
@@ -139,7 +139,7 @@ class Fenster:
                 self.screen.blit(self.stein_rot2, (self.aussenrand + spalte * 100 + self.zwischen_rand_gitter, self.aussenrand + i * 5 - 100 + 5 + self.zwischen_rand_gitter))
             kontrollstrukturen.aus_schalten_pruefen()
             extra_liste = daten.feld_liste[:]
-            extra_liste[spalte] = ["-","-","-","-"]
+            extra_liste[spalte] = ["-", "-" ,"-" ,"-"]
             self.zeige_position(extra_liste)
             self.wiederkehrende_blider(daten)
             pygame.display.flip()
@@ -166,7 +166,7 @@ class Fenster:
             kontrollstrukturen.aus_schalten_pruefen()
 
             extra_liste = daten.feld_liste[:]
-            if neu != None:
+            if neu is not None:
                 extra_liste[spalte] = [neu, daten.feld_liste[spalte][0], daten.feld_liste[spalte][1], daten.feld_liste[spalte][2]]
             self.zeige_position(extra_liste)
             self.wiederkehrende_blider(daten)
@@ -202,24 +202,19 @@ class Fenster:
         ent_farbe = 50
         farbspanne = ent_farbe - st_farbe
         intervall = farbspanne / self.aussenrand
-        farbe = r, g, b = ent_farbe, ent_farbe, ent_farbe
+        r, g, b = ent_farbe, ent_farbe, ent_farbe
         for i in range(self.aussenrand):
             pygame.draw.line(self.screen, (r, g, b), (400 - 1 + i + self.aussenrand + 2 * self.zwischen_rand_gitter, 0), (400 - 1 + i + self.aussenrand + 2 * self.zwischen_rand_gitter, self.hoehe - 1))
             if i <= (self.aussenrand / 2):
-                r -=intervall
-                g -=intervall
-                b -=intervall
-            #elif i <= (rand / 2):
-            #    pass
+                r -= intervall
+                g -= intervall
+                b -= intervall
             else:
-                r +=intervall
-                g +=intervall
-                b +=intervall
+                r += intervall
+                g += intervall
+                b += intervall
 
-
-
-
-        farbe = r, g, b = st_farbe, st_farbe, st_farbe
+        r, g, b = st_farbe, st_farbe, st_farbe
         for i in range(self.aussenrand):
             pygame.draw.line(self.screen, (r, g, b), (0 + i, 0 + i), (self.breite - 1 - i, 0 + i))
             pygame.draw.line(self.screen, (r, g, b), (self.breite - 1 - i, 0 + i), (self.breite - 1 - i, self.hoehe - 1 - i))
@@ -235,7 +230,7 @@ class Fenster:
         ent_farbe = 0
         farbspanne = ent_farbe - st_farbe
         intervall = farbspanne / self.spielfeldrand
-        farbe = r, g, b = st_farbe, st_farbe, st_farbe
+        r, g, b = st_farbe, st_farbe, st_farbe
 
 
         for i in range(self.spielfeldrand):
@@ -342,7 +337,7 @@ class Fenster:
             self.clock.tick(30)
 
     def zeige_auswahl(self, spalte, feldliste, daten, neu = None):
-        if neu == None:
+        if neu is None:
             if daten.am_zug == 1 and self.stein_ausgewaehlt == 1:
                 neu = "o"
             if daten.am_zug == 2 and self.stein_ausgewaehlt == 1:
@@ -403,7 +398,7 @@ class Fenster:
 
     def nachricht(self, nachricht, farbe, groesse, position, bild):
         self.screen.fill((20, 20, 20))
-        if bild != None:
+        if bild is not None:
             self.screen.blit(bild, (0,0))
         self.text_auf_bildschirm(nachricht, farbe, groesse, position)
         pygame.display.flip()
@@ -424,12 +419,10 @@ class Fenster:
 
 if __name__ == "__main__":
     fenster = Fenster()
-    fenster.zeige_position([["o","o","x","-"],["x","o","o","x"],["o","x","x","o"],["x","x","o","-"]])
     pygame.display.flip()
 
 
     while True:
         kontrollstrukturen.aus_schalten_pruefen()
-
 
         pygame.display.flip()

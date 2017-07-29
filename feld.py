@@ -58,17 +58,15 @@ class Spielfeld:
                 symbol = "X"
                 self.sp_zwei = 0
 
+        stein_der_rausfaellt = self.feld_liste[spalte][self.hoehe - 1]
 
-
-        steinDerRausfaellt = self.feld_liste[spalte][self.hoehe - 1]
-
-        if steinDerRausfaellt == "X":
+        if stein_der_rausfaellt == "X":
             self.sp_zwei = 1
-        if steinDerRausfaellt == "O":
+        if stein_der_rausfaellt == "O":
             self.sp_eins = 1
 
-        historienEintrag = (spalte, steinDerRausfaellt)
-        self.historie.append(historienEintrag)
+        historien_eintrag = (spalte, stein_der_rausfaellt)
+        self.historie.append(historien_eintrag)
 
         for zeile in range(self.hoehe):
             self.stein_verschieben((spalte, self.hoehe - 1 - zeile))
@@ -82,8 +80,6 @@ class Spielfeld:
         stein = eintrag[1]
 
         alte_spalte = self.feld_liste[spalte]
-
-
 
         oberster_stein = alte_spalte[0]
 
@@ -105,10 +101,6 @@ class Spielfeld:
             self.sp_zwei = 0
         if stein == "O":
             self.sp_eins = 0
-
-
-
-
 
     def aktuelles_symbol(self):
         if self.am_zug == 1:

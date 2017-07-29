@@ -3,7 +3,6 @@ import fenster_klasse
 import pygame
 import sys
 import kontrollstrukturen
-import random
 import  computerspieler
 
 def sieg_ueberpruefen():
@@ -40,7 +39,7 @@ while not gewonnen:
     auswahl_erfolgt = False
     while not auswahl_erfolgt:
 
-        if daten.am_zug == 1 or computer == False:
+        if daten.am_zug == 1 or not computer:
             # reihenauswahl mit stein anzeigen
             maus_position = pygame.mouse.get_pos()
             if strich0 <= maus_position[0] < strich1:
@@ -67,7 +66,7 @@ while not gewonnen:
                     sys.exit()
 
             # (spezial-)stein auswaehlen
-            if daten.am_zug == 1 or computer == False:
+            if daten.am_zug == 1 or not computer:
                 if event.type == pygame.MOUSEBUTTONDOWN and bereich == 4:
                     if daten.am_zug == 2:
                         if daten.sp_zwei == 1:
@@ -87,11 +86,10 @@ while not gewonnen:
 
                     bild.stand_bild(daten)
 
-
-            if daten.am_zug == 1 or computer == False:
+            if daten.am_zug == 1 or not computer:
                 # stein in reihe setzen
                 if event.type == pygame.MOUSEBUTTONDOWN and bereich != 4:
-                    bild.animation_Reihe(bereich, daten)
+                    bild.animation_reihe(bereich, daten)
                     daten.neuer_stein(bereich, bild.stein_ausgewaehlt)
                     bild.zeige_position(daten.feld_liste)
                     alt_bereich = 5
@@ -101,10 +99,10 @@ while not gewonnen:
                     # siegebedingungen fuer einzelnes spiel ueberpruefen
                     sieg_ueberpruefen()
 
-        if daten.am_zug == 2 and computer == True and not auswahl_erfolgt:
+        if daten.am_zug == 2 and computer and not auswahl_erfolgt:
             gewaehlte_spalte, gewaehlter_stein = computerspieler.ermittle_zug(daten)
             bild.stein_ausgewaehlt = gewaehlter_stein
-            bild.animation_Reihe(gewaehlte_spalte, daten)
+            bild.animation_reihe(gewaehlte_spalte, daten)
             daten.neuer_stein(gewaehlte_spalte, bild.stein_ausgewaehlt)
             bild.zeige_position(daten.feld_liste)
             alt_bereich = 5

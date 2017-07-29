@@ -70,7 +70,7 @@ while not gewonnen:
 
             # stein in reihe setzen
             if event.type == pygame.MOUSEBUTTONDOWN and bereich != 4:
-                bild.animation_Reihe(bereich, daten)
+                bild.animation_reihe(bereich, daten)
                 if bild.stein_ausgewaehlt == 1:
                     daten.neuer_stein(bereich, 1)
                 if bild.stein_ausgewaehlt == 2:
