@@ -1,3 +1,5 @@
+
+
 class Bewertung( object ):
 
     def bewerten(self, spielfeld, ausSicht):
@@ -17,6 +19,17 @@ class Bewertung( object ):
                     wertSteine2 += 5
 
         bewertung = wertSteine1 - wertSteine2
+        if ausSicht == 2:
+            bewertung *= -1
+
+        return bewertung
+
+
+    def bewerten_gewinnen(self, spielfeld, ausSicht):
+
+        (punkte1, punkte2), umwichtig = spielfeld.neue_siegesbedingungen()
+
+        bewertung = punkte1 - punkte2
         if ausSicht == 2:
             bewertung *= -1
 

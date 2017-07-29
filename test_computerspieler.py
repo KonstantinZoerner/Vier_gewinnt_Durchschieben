@@ -20,12 +20,12 @@ class TestSchlauerspieler(unittest.TestCase):
 
         # Startfeld, Spieler 1 am Zug
         mein_feld = feld.Spielfeld()
-        zuege = spieler.ermittleGueltigeZuge(mein_feld)
+        zuege = spieler.ermittle_gueltige_zuge(mein_feld)
         self.assertEquals(len(zuege), 8)
 
         # Spieler 1 hat keinen Spezialstein
         mein_feld.sp_eins = 0
-        zuege = spieler.ermittleGueltigeZuge(mein_feld)
+        zuege = spieler.ermittle_gueltige_zuge(mein_feld)
         self.assertEquals(len(zuege), 4)
 
     def test_ermittleZug(self):

@@ -101,6 +101,10 @@ class Spielfeld:
             self.feld_liste[spalte][feld] = alte_spalte[feld+1]
 
         self.feld_liste[spalte][3] = stein
+        if stein == "X":
+            self.sp_zwei = 0
+        if stein == "O":
+            self.sp_eins = 0
 
 
 
