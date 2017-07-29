@@ -36,7 +36,7 @@ class Zufallsspieler ( Computerspieler ):
 
     def ermittleZug(self, spielfeld):
         zufalls_reihe = random.randint(0, 3)
-        return (zufalls_reihe, 1)
+        return zufalls_reihe, 1
 
 class Schlauerspieler ( Computerspieler ):
 
