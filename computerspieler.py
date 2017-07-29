@@ -26,11 +26,11 @@ class Computerspieler(object):
 
         return zuege
 
-    def ermittle_zug (self, spielfeld):
+    def ermittle_zug(self, spielfeld):
         pass
 
 
-class Zufallsspieler ( Computerspieler ):
+class Zufallsspieler (Computerspieler):
 
     def __init__(self):
         Computerspieler.__init__(self)
@@ -40,7 +40,7 @@ class Zufallsspieler ( Computerspieler ):
         zufalls_reihe = random.randint(0, 3)
         return zufalls_reihe, 1
 
-class Schlauerspieler ( Computerspieler ):
+class Schlauerspieler (Computerspieler):
 
     def __init__(self):
         Computerspieler.__init__(self)
@@ -68,7 +68,7 @@ class Schlauerspieler ( Computerspieler ):
         # Zug zurueckliefern
         return bester_zug
 
-    def probiere_zug_aus (self, spielfeld, zug):
+    def probiere_zug_aus(self, spielfeld, zug):
         ich = spielfeld.am_zug
         spielfeld.neuer_stein(zug[0], zug[1])
 
