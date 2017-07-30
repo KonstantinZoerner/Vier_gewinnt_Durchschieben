@@ -64,7 +64,7 @@ class TestSpielfeldErzeugen(unittest.TestCase):
         self.assertEqual(f.am_zug, 1)
         self.assertEqual(f.sp_eins, 1)
         self.assertEqual(f.sp_zwei, 1)
-        self.assertEqual(f.feld_liste[3][0], 'x')
+        self.assertEqual(f.feld_liste[0][0], 'x')
         self.assertEqual(f.feld_liste[3][0], 'x')
         self.assertEqual(f.feld_liste[0][3], '-')
         self.assertEqual(f.feld_liste[3][3], '-')
