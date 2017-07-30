@@ -55,11 +55,19 @@ class TestSpielfeld(unittest.TestCase):
         mein_feld.zeige_feld()
 
 
+class TestSpielfeldErzeugen(unittest.TestCase):
 
+    def test_spielfeld_erzeugen(self):
 
+        f = feld.erzeuge_spielfeld_aus_zeilen(("xxox", "--o-", "--o-", "----"), am_zug=1)
 
-
-
+        self.assertEqual(f.am_zug, 1)
+        self.assertEqual(f.sp_eins, 1)
+        self.assertEqual(f.sp_zwei, 1)
+        self.assertEqual(f.feld_liste[3][0], 'x')
+        self.assertEqual(f.feld_liste[3][0], 'x')
+        self.assertEqual(f.feld_liste[0][3], '-')
+        self.assertEqual(f.feld_liste[3][3], '-')
 
 if __name__ == '__main__':
     unittest.main()

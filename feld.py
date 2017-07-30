@@ -231,6 +231,27 @@ class Spielfeld:
                 print(self.siegbedingungen_ueberpruefen())
                 gewonnwn = True
 
+def erzeuge_spielfeld_aus_zeilen(zeilen, am_zug = 1):
+    spielfeld = Spielfeld()
+
+    spielfeld.am_zug = am_zug
+    spielfeld.sp_eins = 1
+    spielfeld.sp_zwei = 1
+    x = 0
+    y = 0
+    for zeile in zeilen:
+        for zeichen in zeile:
+            spielfeld.aendere_feld((x, y), zeichen)
+            if zeichen == 'O':
+                spielfeld.sp_eins = 0
+            if zeichen == 'X':
+                spielfeld.sp_zwei = 0
+            x += 1
+        y += 1
+        x = 0
+
+    return spielfeld
+
 if __name__ == "__main__":
     spielfeld = Spielfeld((4, 4))
     spielfeld.spielablauf()
