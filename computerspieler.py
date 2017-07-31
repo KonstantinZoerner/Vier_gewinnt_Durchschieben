@@ -43,10 +43,10 @@ class Zufallsspieler (Computerspieler):
 
 class Schlauerspieler (Computerspieler):
 
-    def __init__(self):
+    def __init__(self, tiefe = 4):
         Computerspieler.__init__(self)
         self.bewerter = bewerten.Bewertung()
-        self.maximale_tiefe = 4
+        self.maximale_tiefe = tiefe
         pass
 
     def ermittle_zug(self, spielfeld):
