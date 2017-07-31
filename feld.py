@@ -139,7 +139,7 @@ class Spielfeld:
                     elif self.feld_liste[spalte][0].lower() == "o":
                         punkte[0] += 1
                 positionen[spalte] = ["+", "+", "+", "+"]
-                print("1")
+                #print("1")
 
         for reihe in range(self.hoehe):
             if self.feld_liste[0][reihe].lower() == self.feld_liste[1][reihe].lower() == self.feld_liste[2][reihe].lower() == self.feld_liste[3][reihe].lower() and self.feld_liste[0][reihe].lower() != "-":
@@ -156,7 +156,7 @@ class Spielfeld:
 
                 for s, spalte in enumerate(self.feld_liste):
                     positionen[s][reihe] = "+"
-                    print("2")
+                    #print("2")
 
         if self.feld_liste[0][3].lower() == self.feld_liste[1][2].lower() == self.feld_liste[2][1].lower() == self.feld_liste[3][0].lower() and self.feld_liste[0][3].lower() != "-":
             if self.feld_liste[0][3].isupper() or self.feld_liste[1][2].isupper() or self.feld_liste[2][1].isupper() or self.feld_liste[3][0].isupper():
@@ -172,7 +172,7 @@ class Spielfeld:
 
             for i in range(4):
                 positionen[i][3 - i] = "+"
-                print("3")
+                #print("3")
 
         if self.feld_liste[0][0].lower() == self.feld_liste[1][1].lower() == self.feld_liste[2][2].lower() == self.feld_liste[3][3].lower() and self.feld_liste[0][0].lower() != "-":
             if self.feld_liste[0][0].isupper() or self.feld_liste[1][1].isupper() or self.feld_liste[2][2].isupper() or self.feld_liste[3][3].isupper():
@@ -188,7 +188,7 @@ class Spielfeld:
 
             for i in range(4):
                 positionen[i][i] = "+"
-                print("4")
+                #print("4")
 
         return punkte, positionen
 

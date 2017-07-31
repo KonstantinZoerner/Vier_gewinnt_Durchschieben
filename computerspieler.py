@@ -57,7 +57,7 @@ class Schlauerspieler (Computerspieler):
 
         # Zuege ausprobieren und bewerten
 
-        beste_bewertung = -1000
+        beste_bewertung = -10000
         bester_zug = kandidaten_zuege[0]
 
         for zug in kandidaten_zuege:
@@ -67,6 +67,7 @@ class Schlauerspieler (Computerspieler):
                 bester_zug = zug
 
         # Zug zurueckliefern
+        print("wichtig",beste_bewertung)
         return bester_zug
 
     def probiere_zug_aus(self, spieler_am_zug, spielfeld, zug, tiefe):
@@ -80,10 +81,10 @@ class Schlauerspieler (Computerspieler):
         (punkte1, punkte2), umwichtig = spielfeld.neue_siegesbedingungen()
         if punkte1 != 0 or punkte2 != 0:
             if spieler_am_zug == 1:
-                bewertung = (punkte1 - punkte2) * 1000
+                bewertung = (punkte1 - punkte2) * 10000
                 print("Bewertung",bewertung)
             else:
-                bewertung = (punkte2 - punkte1) * 1000
+                bewertung = (punkte2 - punkte1) * 10000
                 print("Bewertung", bewertung)
 
         elif tiefe == self.maximale_tiefe:
@@ -96,7 +97,7 @@ class Schlauerspieler (Computerspieler):
             kandidaten_zuege = self.ermittle_gueltige_zuge(spielfeld)
 
             if tiefe % 2 == 0:
-                bester_wert = -1000
+                bester_wert = -10000
                 for zug in kandidaten_zuege:
                     wert = self.probiere_zug_aus(spieler_am_zug, spielfeld, zug, tiefe + 1)
                     if wert > bester_wert:
@@ -104,7 +105,7 @@ class Schlauerspieler (Computerspieler):
                 bewertung = bester_wert
                 print("Bewertung (Maximum)", tiefe, " :", bewertung)
             else:
-                bester_wert = 1000
+                bester_wert = 10000
                 for zug in kandidaten_zuege:
                     wert = self.probiere_zug_aus(spieler_am_zug, spielfeld, zug, tiefe + 1)
                     if wert < bester_wert:
